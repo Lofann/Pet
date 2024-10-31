@@ -1,0 +1,45 @@
+.card{
+border: 1px solid #6A48D7;
+border-radius: 20px;
+padding: 5px;
+width: 200px;
+text-align: center;
+height: auto;
+min-height: 200px;
+}
+
+.card-image{
+    text-align: center;
+    width: 200px;
+    
+}
+
+.product-cards{
+    display: flex;
+    align-items: flex-start;
+    height: 80%;
+    gap:10px;
+    flex-wrap: wrap;
+
+}
+
+.btn{
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    color: #6A48D7;
+    padding: 5px;
+    border: 1px solid #6A48D7;
+    width: 80%;
+}
+
+.btn:hover{
+    background-color: #6A48D7;
+    color: #FFFFFF;
+
+}
+
+.add-btn{
+    font-size: 26px;
+    background-color: #FFFFFF;
+    border: 1px dashed #6A48D7;
+}
