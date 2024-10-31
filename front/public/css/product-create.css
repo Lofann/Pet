@@ -1,0 +1,34 @@
+input, textarea{
+        outline: none;
+        /* box-shadow: 0 0 0 1px #005bff; */
+        border: 1px solid #6A48D7;
+        border-radius: 20px;
+        padding: 15px;
+        height: 100%;
+        width: 100%;
+        
+}
+
+input:hover{
+}
+
+.form{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    gap:10px;   
+    width: 50%;
+}
+
+.form-line {
+
+}
+
+.constructor{
+    display: flex;
+    justify-content: center;
+
+}

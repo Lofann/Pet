@@ -7,12 +7,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-HTML, BODY, .wrapper, #root { height: 100%; } 
+HTML, BODY, .wrapper, #root { height: 100%;  } 
 .wrapper, #root,.main  { margin: 0 auto;}
 
 .wrapper{
-
+ 
 }
+
+
+
 
 .main, .footer{
 border: 1px solid #000000;
@@ -21,7 +24,8 @@ width: 80%;
 text-align: center;
 margin: auto;
 padding: 20px;
-height: 90%;
+height: auto;
+min-height: 90%;
 }
 
 .footer { margin-top: 20px; 
@@ -29,4 +33,3 @@ height: 90%;
           height: 10%;
           color: #fff;
           width: 80%;} 
-

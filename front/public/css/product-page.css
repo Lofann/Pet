@@ -1,0 +1,43 @@
+.product-page{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    min-height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10%;
+    min-width: 100%;
+}
+
+.product-image{
+    max-width: 500px;
+}
+
+.col{
+
+}
+
+.product-about{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    min-width: 500px;
+}
+
+.btn-delete{
+    width: 100px;
+    align-self: center;
+    border: 1px solid  #c00000;
+    background-color: #FFFFFF;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 20px;
+}
+
+.btn-delete:hover{
+    background-color: #c00000;
+    color: #FFFFFF;
+}
