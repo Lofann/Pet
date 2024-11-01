@@ -1,5 +1,8 @@
 from fastapi import Depends, FastAPI, Body
 from fastapi.responses import JSONResponse
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+
 from sqlalchemy.orm import Session 
 import uvicorn 
 import uuid
@@ -9,6 +12,20 @@ from models.product import Product
 from engine import * 
 
 app = FastAPI()
+
+origins = [
+    "http://localhost",
+    "http://localhost:3000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 @app.get("/hello")
 async def hello():
@@ -26,6 +43,17 @@ def get_db():
 def get_products(db: Session = Depends(get_db)):
     return db.query(Product).all()
 
+
+@app.get("/api/products/{id}")
+def get_product_by_id(id, db: Session = Depends(get_db)):
+
+    product = db.query(Product).filter(Product.id == id).first()
+
+    if product == None:
+        return JSONResponse( status_code=404, content={ "message": "Продукт не найден"})
+
+ 
+    return product
 
 @app.post("/api/products")
 def create_product(data  = Body(), db: Session = Depends(get_db)):

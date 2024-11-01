@@ -3,7 +3,7 @@ import { UUID } from "crypto"
 export type Product = {
     id: UUID,
     name: string,
-    descripion: string,
+    description: string,
     count: number,
     price:number,
     saler:UUID,

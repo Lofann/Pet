@@ -1,21 +1,31 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { AppRoute } from "../../consts"
 import { Product } from "../../types/product"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { UUID } from "crypto"
 
 
-const product: Product = {
-  id: '95c4430b-c5f7-4f99-8bd8-17c428704dca',
-  count: 10,
-  descripion: 'The most pretty apple',
-  image: 'https://st24.stpulscen.ru/images/product/217/941/930_original.jpg',
-  name: 'Green Apple',
-  price: 10,
-  saler: '95c4430b-c5f7-4f99-8bd8-17c428704dca'
 
-}
 
 export default function ProductPage(): JSX.Element {
   const navigate = useNavigate()
+  const id = useParams().id
+  const apiUrl = `http://127.0.0.1:8000/api/products/${id}`;
+  
+const [data, setData] = useState<Product>();
+  
+useEffect(() => {
+  axios.get(apiUrl).then((resp) => {
+    setData(resp.data);
+  });}, [setData]);
+
+  const deleteProduct = () =>{
+    axios.delete(apiUrl)
+    navigate(`/${AppRoute.Product}`)
+  }
+
+
   return (
     <>
 
@@ -25,17 +35,17 @@ export default function ProductPage(): JSX.Element {
 
         <div className="align-center font-16-px">
 
-          <h1>{product.name}</h1>
+          <h1>{data?.name}</h1>
           <div className="product-page">
             <div className="col">
-              <img className='product-image' src={product.image}></img>
+              <img className='product-image' src={data?.image}></img>
             </div>
             <div className="product-about col">
-              <p><b>Цена: </b>{product.price} руб.</p>
-              <p><b>Количество: </b>{product.count} </p>
-              <p className="discription">{product.descripion}</p>
-              <p><b>Продавец: </b>{product.saler} </p>
-              <button className="btn delete">Delete</button>
+              <p><b>Цена: </b>{data?.price} руб.</p>
+              <p><b>Количество: </b>{data?.count} </p>
+              <p className="discription">{data?.description}</p>
+              <p><b>Продавец: </b>{data?.saler} </p>
+              <button onClick={() => deleteProduct()} className="btn delete">Delete</button>
               <button onClick={() => navigate(`/${AppRoute.CreateProduct}`)} className="btn">Изменить</button>
             </div>
 
