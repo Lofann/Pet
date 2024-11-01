@@ -103,7 +103,7 @@ export default function CreateProductPage(): JSX.Element {
                         <div>
                             <input
                                 // ref={priceRef}
-                                type="number"
+                                type="string"
                                 className="field price-field"
                                 placeholder="Введите стоимость в рублях"
                                 required={true}

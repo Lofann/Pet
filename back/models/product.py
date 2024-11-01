@@ -13,3 +13,5 @@ class Product(Base):
     count  = Column(Integer)
     price = Column(Integer)
     saler = Column(UUID)
+    image = Column(Text)
+

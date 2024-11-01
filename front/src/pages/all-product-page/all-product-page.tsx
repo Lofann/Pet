@@ -1,5 +1,9 @@
+import useFetch from "use-http";
 import ProductCardsList from "../../components/product-list/product-list";
 import { ProductCards } from "../../types/product-cards";
+import { useEffect, useState } from "react";
+import { randomUUID } from "crypto";
+import { error } from "console";
 
 
 
@@ -72,18 +76,35 @@ export default function AllProductPage(): JSX.Element {
         price: 10,
         image: 'https://st24.stpulscen.ru/images/product/217/941/930_original.jpg'
     },  
-]
+]   
 
+
+
+    const [data, setData] = useState<ProductCards>()
+    useEffect(() => {
+        fetch('http://127.0.0.1:8000/api/products',{
+            mode:  'no-cors', 
+            method: 'GET',
+        })
+          .then(res => res.json())
+          .then(
+            (result) => {
+                setData(result.data);
+            },
+            (error)=>{console.log(error)}
+          )
+      }, [])
+      console.log(data)
     return (
       <>
   
   
-
+            
             <main className="main">
 
                 <h1>ALL PAGE</h1>
 
-                <ProductCardsList products={prodictlist}/>
+                <ProductCardsList products={data}/>
 
             </main>
 

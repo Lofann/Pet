@@ -16,7 +16,7 @@ export default function App(): JSX.Element {
         <Routes>
           <Route
             path={AppRoute.Main}
-            element={<MainPage/>}
+            element={<AllProductPage/>}
           />
             <Route path={AppRoute.Product} >
               <Route index element={<AllProductPage/>}/>

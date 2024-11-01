@@ -7,7 +7,7 @@ export default function ProductCardsList({products}: ProductCardsListProps): JSX
     const navigate = useNavigate()
     return (
       <div className="product-cards">
-        {products.map((product) => (
+        {products?.map((product) => (
           <ProductCard key={product.id} product={product}/>
         ))}
         <button className="card add-btn" 

@@ -26,18 +26,20 @@
     min-width: 500px;
 }
 
-.btn-delete{
-    width: 100px;
-    align-self: center;
+.delete{
+
+
     border: 1px solid  #c00000;
     background-color: #FFFFFF;
+    color: #252525; ;
     padding: 10px;
     padding-left: 25px;
     padding-right: 25px;
     border-radius: 20px;
+    margin-bottom: 10px;
 }
 
-.btn-delete:hover{
+.delete:hover{
     background-color: #c00000;
     color: #FFFFFF;
 }

@@ -1,6 +1,6 @@
 // Маршруты в приложении
 export enum AppRoute {
-    Main = 'main',
+    Main = '/',
     Saler = 'saler',
     Product = 'product',
     CreateProduct = 'create-product'

@@ -1,5 +1,5 @@
 import { ProductCard } from "./product-card";
 
 
-export type ProductCards = ProductCard[]
+export type ProductCards = ProductCard[]|undefined
 
