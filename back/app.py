@@ -64,6 +64,8 @@ def create_product(data  = Body(), db: Session = Depends(get_db)):
                      count  = data['count'],
                      price = data['price'],
                      saler = data["saler"],
+                     image = data["image"],
+
     )   
 
     db.add(product)

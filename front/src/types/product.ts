@@ -1,11 +1,11 @@
 import { UUID } from "crypto"
 
 export type Product = {
-    id: UUID,
+    id: UUID|string| undefined,
     name: string,
     description: string,
     count: number,
     price:number,
-    saler:UUID,
+    saler:UUID|null,
     image: string
 }

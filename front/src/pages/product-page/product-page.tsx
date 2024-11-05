@@ -4,6 +4,7 @@ import { Product } from "../../types/product"
 import { useEffect, useState } from "react"
 import axios from "axios"
 import { UUID } from "crypto"
+import { error } from "console"
 
 
 
@@ -16,8 +17,12 @@ export default function ProductPage(): JSX.Element {
 const [data, setData] = useState<Product>();
   
 useEffect(() => {
+  
   axios.get(apiUrl).then((resp) => {
-    setData(resp.data);
+
+    setData(resp.data);    
+  }).catch((error)=>{
+    navigate(`/${AppRoute.Error404}`)
   });}, [setData]);
 
   const deleteProduct = () =>{
@@ -46,7 +51,7 @@ useEffect(() => {
               <p className="discription">{data?.description}</p>
               <p><b>Продавец: </b>{data?.saler} </p>
               <button onClick={() => deleteProduct()} className="btn delete">Delete</button>
-              <button onClick={() => navigate(`/${AppRoute.CreateProduct}`)} className="btn">Изменить</button>
+              <button onClick={() => navigate(`/${AppRoute.CreateProduct}/${id}`)} className="btn">Изменить</button>
             </div>
 
           </div>
