@@ -52,7 +52,6 @@ def get_product_by_id(id, db: Session = Depends(get_db)):
     if product == None:
         return JSONResponse( status_code=404, content={ "message": "Продукт не найден"})
 
- 
     return product
 
 @app.post("/api/products")
@@ -96,10 +95,6 @@ def delete_product(id, db: Session = Depends(get_db)):
     db.delete(product) 
     db.commit()   
     return product
-
-@app.get("/api/salers")
-def get_salers(db: Session = Depends(get_db)):
-    return db.query(Saler).all()
 
 
 
